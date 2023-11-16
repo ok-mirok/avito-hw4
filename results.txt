@@ -1,0 +1,90 @@
+## issue 1
+Trying:
+    encode('SOS')
+Expecting:
+    '... --- ...'
+ok
+Trying:
+    encode(1)
+Expecting:
+    Traceback (most recent call last):
+    ...
+    TypeError: 'int' object is not iterable
+ok
+2 items had no tests:
+    morse
+    morse.decode
+1 items passed all tests:
+   2 tests in morse.encode
+2 tests in 3 items.
+2 passed and 0 failed.
+Test passed.
+
+
+## issue 2
+====================================== test session starts ======================================
+platform darwin -- Python 3.9.6, pytest-7.4.3, pluggy-1.3.0
+rootdir: /Users/ok_mirok/avito-unit7-classpractice/avito-hw4
+collected 16 items                                                                              
+
+test_morse.py .F.                                                                         [ 18%]
+test_pytest_one_hot_encoder.py .....                                                      [ 50%]
+test_unittest_one_hot_encoder.py .....                                                    [ 81%]
+test_what_is_year_now.py ...                                                              [100%]
+
+=========================================== FAILURES ============================================
+__________________________________ test_decode[-... -.-- .-HI] __________________________________
+
+morse_input = '-... -.-- .', expected_output = 'HI'
+
+    @pytest.mark.parametrize('morse_input, expected_output', [
+        ('... --- ...', 'SOS'),
+        ('-... -.-- .', 'HI'),
+        ('.---- ..--- ...--', '123')
+    ])
+    def test_decode(morse_input, expected_output):
+        """Проверяем верные коды"""
+>       assert decode(morse_input) == expected_output
+E       AssertionError: assert 'BYE' == 'HI'
+E         - HI
+E         + BYE
+
+test_morse.py:12: AssertionError
+==================================== short test summary info ====================================
+FAILED test_morse.py::test_decode[-... -.-- .-HI] - AssertionError: assert 'BYE' == 'HI'
+================================= 1 failed, 15 passed in 0.10s ==================================
+(base) ok_mirok@MacBook-Air-Anastasia avito-hw4 %
+
+## issue 3
+
+test_check_the_check (test_unittest_one_hot_encoder.TestOneHotEncoder) ... ok
+test_check_the_order (test_unittest_one_hot_encoder.TestOneHotEncoder) ... ok
+test_empty_input (test_unittest_one_hot_encoder.TestOneHotEncoder) ... ok
+test_invalid_input (test_unittest_one_hot_encoder.TestOneHotEncoder) ... ok
+test_list_check_the_order (test_unittest_one_hot_encoder.TestOneHotEncoder) ... ok
+
+
+
+
+## issue 4
+============================= test session starts =============================
+collecting ... collected 5 items
+
+test_pytest_one_hot_encoder.py::test_empty_input PASSED                  [ 20%]
+test_pytest_one_hot_encoder.py::test_invalid_input PASSED                [ 40%]
+test_pytest_one_hot_encoder.py::test_check_the_order PASSED              [ 60%]
+test_pytest_one_hot_encoder.py::test_list_check_the_order PASSED         [ 80%]
+test_pytest_one_hot_encoder.py::test_check_the_check PASSED           [100%]
+
+============================== 5 passed in 0.05s ==============================
+
+
+## issue 5
+============================= test session starts =============================
+collecting ... collected 3 items
+
+test_what_is_year_now.py::TestWhatIsYearNow::test_dmy_format PASSED      [ 33%]
+test_what_is_year_now.py::TestWhatIsYearNow::test_invalid_format PASSED  [ 66%]
+test_what_is_year_now.py::TestWhatIsYearNow::test_ymd_format PASSED      [100%]
+
+======================== 3 passed, 1 warning in 0.04s =========================
